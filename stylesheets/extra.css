@@ -1,0 +1,120 @@
+/* Very large mermaid diagrams with horizontal scroll - readable at all sizes */
+.mermaid {
+  width: 100% !important;
+  min-width: 2200px !important;
+  max-width: none !important;
+  overflow-x: auto !important;
+  margin: 2rem 0 !important;
+}
+
+.mermaid svg {
+  width: 100% !important;
+  min-width: 2200px !important;
+  height: auto !important;
+  min-height: 1200px !important;
+  max-height: none !important;
+  display: block !important;
+}
+
+/* Ensure ALL containers don't constrain the diagram */
+.md-content .mermaid {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Override theme's max-width on content containers */
+.md-content,
+.md-content__inner,
+.md-typeset,
+.md-main__inner,
+article.md-typeset,
+.md-content__inner.md-typeset,
+.md-grid,
+.md-main__inner.md-grid {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Large base fonts so text stays readable even on smaller screens */
+.mermaid text {
+  font-size: 28px !important;
+}
+
+.mermaid .node text,
+.mermaid .cluster text,
+.mermaid .label text {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
+
+/* Make subgraph titles larger */
+.mermaid .cluster .cluster-label text {
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  fill: var(--md-primary-fg-color) !important;
+}
+
+/* Ensure arrows are visible */
+.mermaid .edgePath path {
+  stroke-width: 4px !important;
+}
+
+.mermaid .edgeLabel {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+/* Content area - moderate side padding (between narrow and default) */
+.md-main__inner {
+  max-width: 100% !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+.md-content {
+  max-width: none !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Desktop: always show horizontal scroll on 1080p (1920px) */
+@media (min-width: 1920px) {
+  .md-content {
+    overflow-x: auto;
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 1919px) {
+  .md-content {
+    overflow-x: auto;
+  }
+  .mermaid {
+    min-width: 2200px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .md-content {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .mermaid {
+    min-width: 1800px !important;
+  }
+  .mermaid text {
+    font-size: 22px !important;
+  }
+  .mermaid .cluster .cluster-label text {
+    font-size: 28px !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .mermaid svg {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
